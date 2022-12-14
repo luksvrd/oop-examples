@@ -1,28 +1,11 @@
-const urls = [
-  "https://jsonplaceholder.typicode.com/posts",
-  "https://jsonplaceholder.typicode.com/comments",
-  "https://jsonplaceholder.typicode.com/albums",
-  "https://jsonplaceholder.typicode.com/photos",
-];
+import { Todo } from "../models/Todo.js";
+import { TodoList } from "../models/Todo.List.js";
 
-// A fetch returns a Promise, so we can use Promise.all to wait for all of them to complete
-// the map will give us a new array of Promises
-Promise.all(urls.map((url) => fetch(url)))
-  .then((responses) =>
-    Promise.all(responses.map((response) => response.json()))
-  )
-  .then((allData) => {
-    console.log(allData);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+const todo = new Todo("Learn JavaScript");
 
-try {
-  const responses = await Promise.all(urls.map((url) => fetch(url)));
-  const datum = await Promise.all(responses.map((response) => response.json()));
+const todoList = new TodoList();
 
-  console.log(datum);
-} catch (error) {
-  console.error(error);
-}
+todoList.addTodo("Do laundry");
+
+// since we use the 'get' keyword, we can access the property like a variable
+const { nextTodo } = todoList;
