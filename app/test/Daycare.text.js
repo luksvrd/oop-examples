@@ -5,13 +5,17 @@ import Daycare from "../models/Daycare.js";
 describe("Add 🧒🏾", () => {
   it("should add a child to the 'children' array", () => {
     // Arrange
+    // Arrange means that we are setting up the test.
     const child = new Child("Tammy", 1);
     const daycare = new Daycare();
 
     // Act
+    // Act means that we are performing the action that we are testing.
     daycare.addChild(child);
 
     // Assert
+    // Assert means that we are checking to see if the result of the test is what we expect.
+    // Then we compare the result of the test to what we expect.
     expect(daycare.children.length).toBe(1);
     expect(daycare.children[0]).toBe(child);
   });
