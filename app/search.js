@@ -1,1 +1,1 @@
-export const search = (nums, numsTarget) => nums.indexOf(numsTarget);
+export const search = (numbers, numberTarget) => numbers.indexOf(numberTarget);

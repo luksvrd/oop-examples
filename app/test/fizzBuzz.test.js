@@ -1,5 +1,4 @@
 import { expect, it } from "vitest";
-// have to throw in the .js extension for the import to work
 import { fizzBuzz } from "../fizzBuzz.js";
 
 it("should return the number if not a multiple of three or five", () => {

@@ -23,5 +23,3 @@ export const fizzBuzz = (num) =>
       return singleNum;
     })
     .join(", ");
-// Here, we export this module so that it can be imported by 'fizz.test.js'
-module.exports = fizzBuzz;
