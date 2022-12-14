@@ -10,12 +10,12 @@ describe("Add 🧒🏾", () => {
     const daycare = new Daycare();
 
     // Act
-    // Act means that we are performing the action that we are testing.
+    // Act means that we are begginning to run the test.
     daycare.addChild(child);
 
     // Assert
     // Assert means that we are checking to see if the result of the test is what we expect.
-    // Then we compare the result of the test to what we expect.
+    // We are comparing the result of the test to what we expect.
     expect(daycare.children.length).toBe(1);
     expect(daycare.children[0]).toBe(child);
   });
@@ -34,6 +34,8 @@ describe("Add 🧒🏾", () => {
 
   it("should not add a child if already at capacity (defaults to '3')", () => {
     // Arrange
+    // the Array.from() method creates a new, shallow-copied Array instance from an array-like or iterable object.
+    // Array.from({length, 4}) lets you create an array with 4 empty slots.
     const children = Array.from(
       { length: 4 },
       (_, i) => new Child(`Tammy ${i}`, 1)
@@ -46,6 +48,7 @@ describe("Add 🧒🏾", () => {
     });
 
     // Assert
+    // Comparing the length of the children array to the length of the children array that we created and expexts it to be 3.
     expect(daycare.children.length).toBe(3);
   });
 
