@@ -1,11 +1,36 @@
-import { Todo } from "../models/Todo.js";
-import { TodoList } from "../models/Todo.List.js";
+import Child from "./models/Child.js";
+import DayCare from "./models/Daycare.js";
 
-const todo = new Todo("Learn JavaScript");
+const child1 = new Child("Tammer", 3);
+const child2 = new Child("Alec", 1);
+const child3 = new Child("Lisa", 2);
 
-const todoList = new TodoList();
+const dayCare = new DayCare();
 
-todoList.addTodo("Do laundry");
+dayCare.addChild(child1);
+dayCare.addChild(child2);
+dayCare.addChild(child3);
 
-// since we use the 'get' keyword, we can access the property like a variable
-const { nextTodo } = todoList;
+console.log(dayCare.children);
+
+const child4 = new Child("Rosie", 1);
+dayCare.addChild(child4);
+
+// Capacity reached, child not added
+console.log(dayCare.children);
+
+dayCare.pickupChild("Tammer");
+
+// Tammer is no longer at daycare
+console.log(dayCare.children);
+
+// Able to add Rosie now
+dayCare.addChild(child4);
+console.log(dayCare.children);
+
+dayCare.pickupChild("Alec");
+
+// Jan not added, he's above the age limit
+const child5 = new Child("Jan", 20);
+dayCare.addChild(child5);
+console.log(dayCare.children);
